@@ -18,7 +18,7 @@ k = 2
 k = k%len(numbers) # if k is more than len of the list then it will work with modulus which is same
 
 for i in range(k):
-    last = numbers.pop()
+    last = numbers.pop() #pop() removes the last element from the list and returns it.
     numbers.insert(0,last)
 
 print(numbers)
