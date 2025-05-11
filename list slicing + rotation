@@ -1,0 +1,25 @@
+numbers = [1, 2, 3, 4, 5]
+
+k = 2 
+
+k = k%len(numbers)
+
+rotated = numbers[-2:]+numbers[:-k]  #starts from -2 and go to the end + startrs from the beginning and go up to -k
+
+print(rotated)
+
+#list[ : : : ] means list[ start: end(up to not included) : step ]
+
+
+
+numbers = [1, 2, 3, 4, 5]
+k = 2
+
+k = k%len(numbers) # if k is more than len of the list then it will work with modulus which is same
+
+for i in range(k):
+    last = numbers.pop()
+    numbers.insert(0,last)
+
+print(numbers)
+ 
