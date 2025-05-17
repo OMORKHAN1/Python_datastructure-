@@ -1,0 +1,65 @@
+// data type that ccan be sliced
+
+//   Lists,   Tuples,    Strings,    Ranges (convert to list first if needed),   NumPy arrays (if you're using NumPy),  
+//   Pandas Series/DataFrames (kind of – with .iloc[] or .loc[]),    Custom classes (if they implement __getitem__ with slices)
+
+Slicing syntax:
+
+sequence[start:stop:step] // stop is not counted. +/- 1 more to print last index 
+
+// start -- default 0 n step default +1. To reverse always type -1 or add decrement 
+
+List
+
+nums = [10, 20, 30, 40, 50]
+print(nums[1:4])    # [20, 30, 40]
+print(nums[::-1])   # [50, 40, 30, 20, 10] (reverse)
+
+
+String
+
+word = "hello"
+print(word[1:4])    # "ell"
+print(word[::-1])   # "olleh"
+
+
+ Tuple
+
+t = (1, 2, 3, 4)
+print(t[:2])    # (1, 2)
+
+
+Range (converted to list)
+
+r = range(10)
+
+print(r) # range(0, 10). showing r has range(0,10). 10 is not included.
+
+print(list(r)) #[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]. range converted to list
+
+print(list(r)[2:7:2]) #[2, 4, 6]. converting to list before slicing. Change the data type of the range before slicing.
+
+print(tuple(r)[2:7:2]) #(2, 4, 6)
+
+
+Advanced slice tricks:
+
+r = range(10). #convert it first to a data type.
+
+Get every second element: list[::2] #[0, 2, 4, 6, 8]
+
+Reverse every second: list[::-2]  # [9, 7, 5, 3, 1]
+
+Copy a list: list[:] #[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Remove last element: list[:-1] #[9, 7, 5, 3, 1] (0 removed)
+
+Slice with negative indices: list[-3:-1] #[7, 8]
+
+
+
+
+
+
+
+
