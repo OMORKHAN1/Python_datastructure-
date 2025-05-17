@@ -41,6 +41,20 @@ print(list(r)[2:7:2]) #[2, 4, 6]. converting to list before slicing. Change the 
 
 print(tuple(r)[2:7:2]) #(2, 4, 6)
 
+// Short cut annotation meaning
+
+numbers = [10, 20, 30, 40, 50, 60, 70]
+
+
+print(numbers[:]) # means -- [0:len(numbers):1]. len(numbers) excluded n more than last index number
+
+print(numbers[-3:]) # means -- [-3:len(numbers)] len(numbers) excluded n more than last index number
+
+
+print(numbers[::-1]) # [len(number)-1:None:-1] it goes all the way to the beginnig 
+
+# if stopping condition not given, by default len() n start condition by default 0 or none
+
 
 Advanced slice tricks:
 
