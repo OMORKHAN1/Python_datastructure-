@@ -1,7 +1,30 @@
+
+// reversing with index number
 numbers = [1, 2, 3, 4, 5]
 reverse_number = []
 
-for i in range(0,5):
+for i in range(-1,-6,-1):    #here counting last index as -1 and counting negatively to the left from the last.
     reverse_number.append(numbers[i])
 print(reverse_number)
+
+// reversing with len() function
+numbers = [1, 2, 3, 4, 5]
+reverse_number = []
+
+for i in range(len(numbers)-1,-1,-1): #here counting last index as +4 and going downward from +4, to reverse the list first index becomes 0 and to print that go up to -1.-1 step size
+    reverse_number.append(numbers[i])
+print(reverse_number)
+
+
+// easiest and pythonic way for reversing list
+
+numbers = [1, 2, 3, 4, 5]
+reverse_number = numbers[::-1]
+print(reverse_number)
+
+
+// just printing the elements of the list
+numbers = [1, 2, 3, 4, 5]
+for i in numbers:
+    print(i)
     
