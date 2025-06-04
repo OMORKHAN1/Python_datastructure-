@@ -1,0 +1,88 @@
+# 1. Append Numbers
+empty_list = []
+
+for i in range(0,6):
+        empty_list.append(i)
+print(empty_list)
+
+
+# 2. Insert in the Middle
+
+items = ['apple', 'banana', 'cherry'] not remove bannana
+items[1] = "orange"
+
+print(items)
+
+# 3. Remove a Value
+
+nums = [10, 20, 30, 40, 50]
+
+nums.remove(30) #expect value not index number
+
+for i in nums:
+    if i == 30:
+        nums.remove(i)
+# print(nums)
+
+# 4. Pop Last Element
+
+letters = ['a', 'b', 'c', 'd']
+
+last = letters.pop()
+
+print(last)
+
+#5. Update a List Value
+
+nums = [5, 10, 15, 20]
+
+nums[1] = 100
+
+print(nums)
+
+#6. Sort a List
+
+values = [99, 22, 33, 11, 5, 66]
+sort_values = []
+
+mini = values[0]
+
+for i in range(1,len(values)):
+    if values[i] < min:
+        sort_values[i-1] = values[i]
+        mini = values[i] 
+    
+    else:
+        sort_values.append(values[i])
+
+
+# values.sort()
+print(values)
+
+#7. Reverse a List
+
+names = ['Tom', 'Jerry', 'Spike']
+names.reverse()
+
+print(names)
+
+#8. Check Type
+
+data = [1, 2, 3]
+
+print(type(data), data)
+
+#9. Mix Data Types
+
+data = [1,"AB", 5.5]
+
+for i in data:
+    print(type(i))
+
+#10. Combine Two Lists
+
+a = [1, 2, 3]
+b = [4, 5, 6]
+
+c = a+b
+print(c)
