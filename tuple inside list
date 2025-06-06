@@ -1,0 +1,27 @@
+// tuple inside list
+
+market = [("sugar",100),("rice",450),("chicken",300)]
+
+for index,(item,price) in enumerate(market): //enumerate by default return position and value. we are stroing position by index and for multiple values using nested variable
+    print(f"{index}:{item}-${price}")
+// print(f"{item}-${price}") if position not needed.
+
+
+// unpack tuple
+point = (4, 5)
+x, y = point
+
+print("x:", x)
+print("y:", y)
+
+// slicing tuple
+
+colors = ('red', 'green', 'blue', 'yellow', 'purple')
+middle_colors = colors[1:4]
+print(middle_colors)
+
+// tuple loop
+person = ("Alice", 25, "Engineer")
+
+for i in range(0, 2):
+    print(person[i])
