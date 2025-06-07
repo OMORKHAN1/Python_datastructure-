@@ -1,0 +1,61 @@
+people = [("John", 180), ("Mary", 165), ("Paul", 172)]
+
+sorted_people = sorted(people, key=lambda x: x[0],reverse= False) // ascending order
+
+sorted_people = sorted(people, key=lambda x: x[1],reverse= true) // descending order 
+
+
+What is key?
+In Python, the sorted() function sorts a list of items. But how does it know what to sort by? That’s where the key argument comes in. It tells Python - Use this function(lambda x: or anyting els) to decide 
+how to sort each item.
+
+What is lambda x:?
+lambda x: → this creates an anonymous (temporary) function that takes one input (each item in the list), and after taking all of the input very rapidly, evaluate all of them internally and sort by that.
+
+
+x[1] → means "get the second element" from the tuple
+x[0] → means "get the first element" from the tuple
+
+So lambda x: x[1] means:
+
+“For each item, return its score, evaluate them internaaly very first and sort by that.”
+
+
+Internally, think of it like this:
+
+temp = [
+    (88, ("Alice", 88)),
+    (95, ("Bob", 95)),
+    (70, ("Charlie", 70))
+]
+
+Then it sorts by the first item in each of those pairs (88, 95, 70).
+After sorting:
+
+temp = [
+    (70, ("Charlie", 70)),
+    (88, ("Alice", 88)),
+    (95, ("Bob", 95))
+]
+
+And then returns only the second part:
+
+[("Charlie", 70), ("Alice", 88), ("Bob", 95)]
+
+all values evaluated one-by-one quickly before the sorting happens.
+
+Python uses those values to decide the order, but it always keeps the original data.
+
+Without labda x:
+
+people = [("John", 180), ("Mary", 165), ("Paul", 172)]
+
+def get_score(people):
+    return people[1]
+
+sorted_poeple = sorted(people,key= get_score, reverse= False)
+
+print(sorted_poeple)
+
+
+
