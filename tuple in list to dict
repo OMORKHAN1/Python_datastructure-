@@ -1,0 +1,42 @@
+// without defaultdictionary
+sales = [
+    ("Alice", 100),
+    ("Bob", 200),
+    ("Alice", 150),
+    ("Charlie", 300),
+    ("Bob", 100),
+]
+
+sales_dict = {
+
+
+}
+
+for key,value in sales:
+
+
+    if key in sales_dict:
+        sales_dict[key]+=value
+    
+    else:
+        sales_dict[key] = value
+
+print(sales_dict)
+
+// with defaultdictionary
+
+from collections import defaultdict
+sales = [
+    ("Alice", 100),
+    ("Bob", 200),
+    ("Alice", 150),
+    ("Charlie", 300),
+    ("Bob", 100),
+]
+
+sales_dict = defaultdict(int)
+
+for key, value in sales:
+    sales_dict[key] += value
+
+print(dict(sales_dict))
