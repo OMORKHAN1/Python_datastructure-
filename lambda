@@ -1,3 +1,5 @@
+// lambda x: and key argument explanation
+
 people = [("John", 180), ("Mary", 165), ("Paul", 172)]
 
 sorted_people = sorted(people, key=lambda x: x[0],reverse= False) // ascending order
