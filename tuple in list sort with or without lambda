@@ -1,0 +1,32 @@
+// lambda
+
+scores = [("Alice", 88), ("Bob", 95), ("Charlie", 70), ("David", 85)]
+
+# Sort by second item (score) in descending order
+sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
+
+print(sorted_scores)
+
+// manually without lambda 
+
+
+scores = [("Alice", 88), ("Bob", 95), ("Charlie", 70), ("David", 85)]
+
+# Manual sort (descending) by score using a simple selection sort logic
+sorted_scores = []
+
+# Copy the original list so we can manipulate it
+unsorted_scores = scores.copy()
+
+while unsorted_scores:
+    # Find the tuple with the highest score
+    max_score = unsorted_scores[0]
+    print(max_score )
+    for item in unsorted_scores:
+        if item[1] > max_score[1]:
+            max_score = item
+    sorted_scores.append(max_score)
+    unsorted_scores.remove(max_score)
+
+print(sorted_scores)
+
