@@ -1,9 +1,9 @@
-// lambda
+// lambda x is a funtion that sort the list after evelauatinf all the values internally and return sorted list. Key is an argument that tells python how to sort
 
 scores = [("Alice", 88), ("Bob", 95), ("Charlie", 70), ("David", 85)]
 
 # Sort by second item (score) in descending order
-sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
+sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True) // reverse = False ascending order 
 
 print(sorted_scores)
 
