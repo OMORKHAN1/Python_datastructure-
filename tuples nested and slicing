@@ -1,0 +1,54 @@
+// average of the scores
+students = (
+    ("Alice", (80, 90)),
+    ("Bob", (60, 70)),
+    ("Charlie", (85, 95)),
+    ("David", (70, 65))
+)
+
+for name,(score1,score2) in students:
+    total = score1+score2
+    average = total/2
+    if average >= 75:
+        print(f"{name} - {average}")
+
+// slicing tuples 
+
+students = (
+    ("Alice", (80, 90)),
+    ("Bob", (60, 70)),
+    ("Charlie", (85, 95)),
+    ("David", (70, 65))
+)
+
+// without loop we need to give row and column number to slice
+print(students[0][0] ) # Output: 'Alice'
+print(students[0][1][0] ) # Output: 80
+print(students[0][1][1]) # Output: 90
+
+// assigning first element to s and slicing by elements position
+s = students[0]
+print(s[0]) # Output: 'Alice'
+print(s[1]) # Output: (80, 90)
+
+// when we use loop we do not need to mention row, column as it will be accessed one by ony.
+// printing all the names
+
+names = [student[0] for student in students]
+print(names)
+['Alice', 'Bob', 'Charlie', 'David']
+
+// All scores in tuple format
+
+scores = [student[1] for student in students]
+print(scores)
+[(80, 90), (60, 70), (85, 95), (70, 65)]
+
+// Get All Individual Scores in list format
+
+all_scores = [score for student in students for score in student[1]]
+print(all_scores)
+[80, 90, 60, 70, 85, 95, 70, 65]
+
+
+
