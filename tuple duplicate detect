@@ -1,0 +1,37 @@
+// duplicate detecting means we need to use set()
+
+logins = [
+    ("user1", "192.168.1.1"),
+    ("user2", "192.168.1.5"),
+    ("user1", "192.168.1.1"),
+    ("user3", "192.168.1.8")
+]
+
+
+seen = set()
+
+for login in logins:
+    if login in seen:
+        print("True")
+        break
+    else:
+        seen.add(login)
+
+// without set() we can try this, but set() best practice 
+
+logins = [
+    ("user1", "192.168.1.1"),
+    ("user2", "192.168.1.5"),
+    ("user1", "192.168.1.1"),
+    ("user3", "192.168.1.8")
+]
+
+
+no_duplicate = [logins[0]]
+
+for i in range(1,len(logins)):
+    if logins[i] in no_duplicate:
+        print("True")
+        break
+    else:
+        no_duplicate.append(logins[i])
