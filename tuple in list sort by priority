@@ -1,0 +1,28 @@
+// list of tuples with name and age. sort it first by name, and if names match, then by age.
+
+people = [("Alice", 30), ("Bob", 25), ("Alice", 25), ("Charlie", 22)]
+
+# Sort by name, then by age
+people.sort(key=lambda x: (x[0], x[1])) // by default ascending order (a-z)
+
+print(people)
+
+
+people = [("Alice", 30), ("Bob", 25), ("Alice", 25), ("Charlie", 22)]
+
+def custom_sort(person):
+    name, age = person
+    if name == "Alice":
+        # Alice first, age descending
+        return (0, -age)
+    else:
+        # Others later, age ascending (name ignored)
+        return (1, age)
+
+people.sort(key=custom_sort)
+
+print(people)
+
+output: [('Alice', 30), ('Alice', 25), ('Charlie', 22), ('Bob', 25)]
+
+
