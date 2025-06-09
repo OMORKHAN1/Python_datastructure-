@@ -1,0 +1,11 @@
+data = [("Math", 90), ("English", 85), ("Math", 80)]
+
+group = {}
+
+for key, val in data:
+    if key in group:
+        group[key].append(val)
+    else:
+        group[key] = [val]  # Initialize with a list
+
+print(group)
