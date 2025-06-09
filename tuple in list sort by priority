@@ -1,11 +1,72 @@
-// list of tuples with name and age. sort it first by name, and if names match, then by age.
+# list of tuples with name and age. sort it first by name, and if names match, then by age.
 
 people = [("Alice", 30), ("Bob", 25), ("Alice", 25), ("Charlie", 22)]
 
 # Sort by name, then by age
-people.sort(key=lambda x: (x[0], x[1])) // by default ascending order (a-z)
+people.sort(key=lambda x: (x[0], x[1])) # by default ascending order (a-z)  #same name sorted by age, different name sorted by name. by default ascending order
 
 print(people)
+
+output: [('Alice', 25), ('Alice', 30), ('Bob', 25), ('Charlie', 22)]
+
+---------------------------------------------------------------------------------------------------
+
+
+# for name sorted order changed to descending and for different name sorted based on age not name.
+
+people = [("Alice", 30), ("Bob", 25), ("Alice", 25), ("Charlie", 22)]
+
+# 0 n 1 used to group the same and different names. (a,b, / true,false can be used)
+
+people.sort(key=lambda x: (0, -x[1]) if x[0] == "Alice" else (1, x[1])) # negative used to sort in descending order. x[1] is used to sort based on age not name.
+print(people)
+
+# output: [('Alice', 30), ('Alice', 25), ('Charlie', 22), ('Bob', 25)]
+----------------------------------------------------------------------------------------------------------
+
+#custom sort function is used instead of lambda x: function
+
+people = [("Alice", 30), ("Bob", 25), ("Alice", 25), ("Charlie", 22)]
+
+# Custom sort function
+def custom_sort(person):
+    name, age = person
+    # For Alice, sort age in descending (so we return negative age)
+    if name == "Alice":
+        return (name, age) #same name sorted by age
+    # For everyone else, sort age ascending
+    return (name, age) #differenr name sort by name. 
+
+# Sort using the custom key
+people.sort(key=custom_sort)
+
+print(people)
+
+
+output: [('Alice', 25), ('Alice', 30), ('Bob', 25), ('Charlie', 22)]
+
+
+-----------------------------------------------------------------------------------------------------------
+
+people = [("Alice", 30), ("Bob", 25), ("Alice", 25), ("Charlie", 22)]
+
+# Custom sort function
+def custom_sort(person):
+    name, age = person
+    # For Alice, sort age in descending (so we return negative age)
+    if name == "Alice":
+        return (name, -age) #same name sorted by age, by negative descending order maitained
+    # For everyone else, sort age ascending
+    return (name, age) #differenr name sort by name. 
+
+# Sort using the custom key
+people.sort(key=custom_sort)
+
+print(people)
+
+# output: [('Alice', 30), ('Alice', 25), ('Bob', 25), ('Charlie', 22)]
+
+-------------------------------------------------------------------------------------------------------------------------------
 
 
 people = [("Alice", 30), ("Bob", 25), ("Alice", 25), ("Charlie", 22)]
@@ -17,12 +78,12 @@ def custom_sort(person):
         return (0, -age)
     else:
         # Others later, age ascending (name ignored)
-        return (1, age)
+        return (1, age) # no negative by default ascending 
 
 people.sort(key=custom_sort)
 
 print(people)
 
-output: [('Alice', 30), ('Alice', 25), ('Charlie', 22), ('Bob', 25)]
+# output: [('Alice', 30), ('Alice', 25), ('Charlie', 22), ('Bob', 25)]
 
 
