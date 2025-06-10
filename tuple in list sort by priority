@@ -11,6 +11,12 @@ output: [('Alice', 25), ('Alice', 30), ('Bob', 25), ('Charlie', 22)]
 
 ---------------------------------------------------------------------------------------------------
 
+people = [("Alice", 30), ("Bob", 25), ("Alice", 25), ("Charlie", 22)]
+people.sort(key=lambda x: (x[0], -x[1]) if x[0] == "Alice" else (x[0], x[1])) #same name sorted absed on age, negative for descending, different name sorted based on alphabetic order
+print(people)
+
+# output: [('Alice', 30), ('Alice', 25), ('Bob', 25), ('Charlie', 22)]
+----------------------------------------------------------------------------------------------------
 
 # for name sorted order changed to descending and for different name sorted based on age not name.
 
