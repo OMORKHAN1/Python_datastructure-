@@ -1,0 +1,46 @@
+# Intersection operation 
+
+list1 = [1, 2, 3]
+list2 = [4, 5, 2]
+
+set1 = set(list1)
+set2 = set(list2)
+
+common = set1 & set2 # intersection 
+
+print(len(common)>0)
+
+# output: True >>>>> as common set() has one element after intersection
+
+# alternative intersection operation with boolean
+print(bool(set(list1)&set(list2)))
+
+# difference operation
+
+list1 = [1, 2, 3, 4]
+list2 = [2, 4]
+
+print(list(set(list1)-set(list2)))
+
+#print(list1 -list2) >>>>>> list does not support mathematical operation. It does not have this in built in
+
+#for list format without set()
+
+result = [x for x in list1 if x not in list2]
+print(result)  # [1, 3]
+
+
+#count operation with set()   >>>>>>>> as no duplicate is permissiable, set helps to count unique characters
+
+sentence = "apple banana apple orange banana mango"
+
+unique = set(sentence)
+print(unique) # {'r', 'l', 'a', 'p', 'e', 'm', 'o', 'n', 'b', ' ', 'g'} >> it will work on letters and space
+print(len(unique)) # 11 >>> total 11 letters with 1 space
+
+#right one for count operation
+sentence = "apple banana apple orange banana mango"
+
+words = sentence.split()       # Split sentence into words → ['apple', 'banana', ...] since we want to count words not letters
+unique_words = set(words)      # Convert list to set to remove duplicates
+print(len(unique_words))       # 4 >>>>>>>> Count unique words
