@@ -1,4 +1,4 @@
-my_tuple = (10, 20, 30)
+my_tuple = (10, 20, 30) 
 my_tuple[1] = 99  # Attempting to change the second value
 
 # output: TypeError: 'tuple' object does not support item assignment
