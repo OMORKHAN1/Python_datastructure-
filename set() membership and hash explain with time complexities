@@ -1,0 +1,125 @@
+when we need to check duplicate we use set() to avoid duplicate values
+we can use list and other data type but using set() makes it faster. 
+
+list → This takes O(n) time (it scans the whole list and for 100,000+ items it will be slow).
+set → This takes O(1) time (because sets are hash-based).
+hashable data type like -> set(), dict time complexities o(1)
+
+set is unordered but list is ordered. If we use set to check the uniqueness and then add it to the list, order will be preserved
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Problem 1: Remove Duplicates from a List, Keep Original Order:
+
+items = ['apple', 'banana', 'apple', 'orange', 'banana', 'grape']
+
+seen = set() #membership check, hashbale time takes o(1)
+unique_items = [] #ordered
+
+for item in items:
+    if item not in seen:
+        seen.add(item)
+        unique_items.append(item) 
+
+print(unique_items) # ['apple', 'banana', 'orange', 'grape'] (list is printed, so order preserved)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Problem 2: Find Common Elements in Two Lists (Preserve Order):
+
+list1 = ['apple', 'banana', 'grape', 'orange']
+list2 = ['banana', 'kiwi', 'grape', 'apple']
+
+set2 = set(list2)
+common = []
+
+for item in list1:
+    if item in set2 and item not in common:
+        common.append(item)
+
+print(common) # ['apple', 'banana', 'grape']
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Problem 3: Remove items from list1 that exist in list2:
+
+list1 = ['apple', 'banana', 'grape', 'orange']
+list2 = ['banana', 'kiwi', 'grape', 'apple']
+
+set2 = set(list2)
+result = [item for item in list1 if item not in set2]
+
+print(result) # ['orange']
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔢 What is O(n) and O(1)?
+These are called time complexities — they tell you how fast (or slow) an operation is, based on the size of the data.
+
+✅ O(1) — Constant Time:
+The operation takes the same amount of time, no matter how many elements.
+
+Example:
+my_list = [1, 2, 3]
+print(my_list[0])  # Always takes the same time → O(1)
+
+
+❌ O(n) — Linear Time:
+The time it takes grows linearly with the size of the data.
+
+Example:
+my_list = [1, 2, 3, 4, 5]
+3 in my_list  # Python checks one-by-one → O(n)
+
+💡 Why Sets (and Dicts) Are Fast → O(1) Lookup?
+Because they are hash-based.
+
+📦 When you do this:
+my_set = {10, 20, 30}
+
+Python internally:
+Uses a hash function to compute a unique "position" for each item.
+Stores it in a kind of table (hash table).
+
+So when you ask:
+20 in my_set
+→ Python doesn't search through the whole set. It jumps directly to the right spot using the hash — that's why it’s O(1).
+
+💥 Compare with Lists:
+List:
+x in my_list  # O(n)
+Checks each element one by one until it finds it or reaches the end.
+
+Set:
+x in my_set  # O(1)
+Jumps directly to the value’s slot using a hash — instant lookup.
+
+🧠 Summary:
+Operation	                    List ([])	               Set (set())
+Lookup x in ...	               O(n)	                     ✅ O(1)
+Duplicates	                   Allowed	                 ❌ Not allowed (also dict)
+Keeps Order	                   Yes (Python 3.7+)	       ❌ No (unordered)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚡️ Problem: Fast Lookup with Set vs List
+
+list1 = list(range(1, 10001))      # 1 to 10,000
+list2 = [9999, 10000, 10001, 10002, 12345]  # Search targets
+# ✅ Version A: Using List Lookup (O(n) per lookup)
+for item in list2:
+    if item in list1:
+        print(f"{item} found in list1")
+    else:
+        print(f"{item} not found")
+
+# 🚀 Version B: Using Set Lookup (O(1) per lookup)
+
+list1_set = set(list1)
+
+for item in list2:
+    if item in list1_set:
+        print(f"{item} found in set version of list1")
+    else:
+        print(f"{item} not found")
+
+# Note: set version will be faster and when we are looiking up or searching using set reduce the time complexities. 
