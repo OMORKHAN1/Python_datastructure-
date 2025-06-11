@@ -1,4 +1,4 @@
-#union \ intersection \ difference \ symmetric difference / subset 
+#union \ intersection \ difference \ symmetric difference / subset  
 sentence1 = "apple banana orange"
 sentence2 = "banana mango grape apple"
 ---------------------------------------------------------------------------------------------------------
