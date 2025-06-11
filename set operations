@@ -1,3 +1,33 @@
+#union \ intersection \ difference \ symmetric difference / subset 
+sentence1 = "apple banana orange"
+sentence2 = "banana mango grape apple"
+---------------------------------------------------------------------------------------------------------
+union = list(set(sentence1.split()) | set(sentence2.split()))
+print(f"union:{union}") # union:['mango', 'grape', 'banana', 'apple', 'orange']
+
+---------------------------------------------------------------------------------------------------------
+
+common = list(set(sentence1.split()) & set(sentence2.split()))
+print(f"intersection:{common}") # intersection:['banana', 'apple']
+
+---------------------------------------------------------------------------------------------------------
+
+difference = list(set(sentence1.split()) - set(sentence2.split()))
+print(f"difference:{difference}") # difference:['orange'] 
+
+---------------------------------------------------------------------------------------------------------
+
+
+sym_diff = list(set(sentence1.split()) ^ set(sentence2.split())) # ^ gives the symmetric difference — values that are in either of the sets, but not both
+print(f"symmetric difference:{sym_diff}") # symmetric difference:['mango', 'grape', 'orange'] (commons elements deducted, only uncommons are remained)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+subset = set(sentence1.split()).issubset(set(sentence2.split()))
+print(f"subset:{subset}") # subset:False (all the elements of sentence1 need to be in sentence2)
+
+---------------------------------------------------------------------------------------------------------
+
 # Intersection operation 
 
 list1 = [1, 2, 3]
@@ -14,7 +44,7 @@ print(len(common)>0)
 
 # alternative intersection operation with boolean
 print(bool(set(list1)&set(list2)))
-
+---------------------------------------------------------------------------------------------------------
 # difference operation
 
 list1 = [1, 2, 3, 4]
@@ -29,7 +59,7 @@ print(list(set(list1)-set(list2)))
 result = [x for x in list1 if x not in list2]
 print(result)  # [1, 3]
 
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #count operation with set()   >>>>>>>> as no duplicate is permissiable, set helps to count unique characters
 
 sentence = "apple banana apple orange banana mango"
