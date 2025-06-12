@@ -1,9 +1,12 @@
 when we need to check duplicate we use set() to avoid duplicate values
-we can use list and other data type but using set() makes it faster. 
+we can use list and other data type but using set() makes it faster. why?
 
 list → This takes O(n) time (it scans the whole list and for 100,000+ items it will be slow).
-set → This takes O(1) time (because sets are hash-based).
-hashable data type like -> set(), dict time complexities o(1)
+set → This takes O(1) time (because sets use hash-based table internally. But it is not hashable data type since set is mutable(add,remove)).
+data type with hash based table like -> set(), dict time complexities o(1)
+-->>>> though set and dictionary are not hashable data type since they are mutable, their key and elemetns are hasbale and immutable, and they use hash based table
+that helps the operation to be faster and reduce the time complexity - o(1) mostly. Therefore set can not be used as KEY in dictionary but tuple can be as 
+tuple is purely hshable data type  <<<<----------
 
 set is unordered but list is ordered. If we use set to check the uniqueness and then add it to the list, order will be preserved
 -------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -70,14 +73,14 @@ Example:
 my_list = [1, 2, 3, 4, 5]
 3 in my_list  # Python checks one-by-one → O(n)
 
-💡 Why Sets (and Dicts) Are Fast → O(1) Lookup?
-Because they are hash-based.
+💡 Why Sets n dictionary Are Fast → O(1) Lookup?
+Because they use hash-based table internally using __hash__ method
 
 📦 When you do this:
 my_set = {10, 20, 30}
 
 Python internally:
-Uses a hash function to compute a unique "position" for each item.
+Uses a hash function ( __hash__ ) to compute a unique "position" for each item.
 Stores it in a kind of table (hash table).
 
 So when you ask:
@@ -123,3 +126,44 @@ for item in list2:
         print(f"{item} not found")
 
 # Note: set version will be faster and when we are looiking up or searching using set reduce the time complexities. 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+What is __hash__?
+__hash__ is a special method in Python that returns an integer hash value for an object.
+
+This hash value is used by hash-based data structures like dict and set to quickly find where to store or locate the object.
+
+How is __hash__ used?
+When you use an object as a key in a dictionary or an element in a set:
+
+Python calls the object's __hash__() method to get its hash value.
+That hash value determines the bucket/index in the hash table.
+Python uses this index to quickly find the location of the item.
+
+Important points about __hash__:
+Objects that are mutable usually have __hash__ set to None (making them unhashable).
+Objects that are immutable implement __hash__ to return a stable hash value.
+If you override __eq__ in a custom class, you must also override __hash__ to maintain hash consistency.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Example:
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+    def __hash__(self):
+        return hash((self.x, self.y))  # hash a tuple of attributes
+
+p1 = Point(1, 2)
+p2 = Point(1, 2)
+
+print(hash(p1))  # some integer
+print(hash(p2))  # same integer as p1
+print(p1 == p2)  # True
+
+
+Now p1 and p2 can be used as keys in dictionaries or elements in sets.
