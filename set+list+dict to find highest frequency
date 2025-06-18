@@ -1,0 +1,27 @@
+# finding highest frequency of domains
+
+emails = [
+    "alice@gmail.com",
+    "bob@yahoo.com",
+    "charlie@gmail.com",
+    "dave@outlook.com",
+    "eve@yahoo.com",
+    "frank@gmail.com",
+    "grace@outlook.com",
+    "heidi@yahoo.com"
+]
+domain_count = {}
+for email in emails:
+    _,domain = email.split("@")
+    domain_count[domain] = domain_count.get(domain,0)+1
+
+print(domain_count)
+
+#highest = max(domain_count) --- then it will give output with highest alphabetic word not with the highest value
+highest = max(domain_count.values()) # this is give the highest value output 
+max_domains = [domain for domain,count in domain_count.items() if count == highest]
+
+print(max_domains)
+
+# Output: {'gmail.com': 3, 'yahoo.com': 3, 'outlook.com': 2}
+# ['gmail.com', 'yahoo.com']
