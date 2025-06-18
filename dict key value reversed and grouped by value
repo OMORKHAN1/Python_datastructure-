@@ -1,0 +1,16 @@
+people = {
+    "Alice": "New York",
+    "Bob": "Los Angeles",
+    "Charlie": "New York",
+    "David": "Chicago"
+}
+
+people_reverse = {}
+
+for name, city in people.items():
+    if city not in people_reverse:
+        people_reverse[city] = []  # Initialize the list. Because if we diretly add value withot initiating list python will throw erroe since there is no list or key in the list and it is empty. so first initialize a list then append values to it.
+    people_reverse[city].append(name)
+
+print(people_reverse)
+# {'New York': ['Alice', 'Charlie'], 'Los Angeles': ['Bob'], 'Chicago': ['David']}
