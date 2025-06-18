@@ -1,0 +1,68 @@
+# grouping unique domain
+
+emails = [
+    "alice@gmail.com",
+    "bob@yahoo.com",
+    "charlie@gmail.com",
+    "alice@gmail.com",
+    "dave@outlook.com",
+    "bob@yahoo.com",
+    "eve@outlook.com"
+]
+
+unique_emails = set(emails)
+user_domain = {}
+
+for email in unique_emails:
+    user, domain = email.split('@')
+    if domain not in user_domain:
+        user_domain[domain] = set()  # Use set to avoid duplicate users
+    user_domain[domain].add(user)
+
+# Convert sets to lists before printing
+for domain in user_domain:
+    user_domain[domain] = list(user_domain[domain])
+
+print(user_domain)
+
+# output: {'gmail.com': ['charlie', 'alice'], 'yahoo.com': ['bob'], 'outlook.com': ['dave', 'eve']}
+
+# grouping unique users  
+
+emails = [
+    "alice@gmail.com",
+    "bob@yahoo.com",
+    "charlie@gmail.com",
+    "dave@outlook.com",
+    "eve@protonmail.com",
+    "frank@yahoo.com"
+]
+
+domain_count = {}
+
+for email in emails:
+    _,domain = email.split("@")
+
+    # domain_count[domain] = domain_count.get(domain, 0) + 1 
+
+    if domain in domain_count:
+        domain_count[domain] +=1
+    else:
+        domain_count[domain] =1 
+    
+print(domain_count)
+
+# output 
+# {'gmail.com': 2, 'yahoo.com': 2, 'outlook.com': 1, 'protonmail.com': 1}
+# ['dave', 'eve']
+    
+
+result = []
+
+for email in emails:
+    user, domain = email.split("@")
+    if domain_count[domain] == 1:
+        result.append(user)
+ 
+print(result)
+
