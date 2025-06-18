@@ -1,0 +1,11 @@
+# whenever we need to work with two or multiple values at a time use dictionary
+nums = [2, 3, 2, 5, 3, 7, 5, 2]
+
+nums_count = {}
+
+for num in nums:
+    nums_count[num] = nums_count.get(num,0)+1
+
+print(nums_count)
+
+# {2: 3, 3: 2, 5: 2, 7: 1}
