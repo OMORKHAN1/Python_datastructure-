@@ -1,0 +1,17 @@
+
+# dict.get(key,0) is a way of chekcing keys exist or not.  
+a = {"apple": 3, "banana": 2}
+b = {"banana": 1, "orange": 4}
+
+merged = {}
+
+for key, val in a.items():
+    merged[key] = val
+
+for key, val in b.items():
+    merged[key] = merged.get(key,0)+val # checking if the key exist then add its val with 2nd dict, if not add default val 0 with 2nd dict
+
+print(merged)
+
+#{'apple': 3, 'banana': 3, 'orange': 4}
+       
