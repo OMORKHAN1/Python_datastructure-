@@ -1,0 +1,94 @@
+# 1. Creating a Dictionary
+person = {"name": "Alice", "age": 25, "city": "New York"}
+
+person = {"name":"Alice", "age": 26, "city": "Newyork"}
+print(person['name'])
+print(person["age"])
+print(person["city"])
+
+#alternative
+for key, val in person.items(): #since so many values inside the dict, to unpack we need to use items function
+    print(person[key])
+
+for key, val in person.items():
+    print(val)  # Cleaner and avoids re-accessing the dictionary
+
+
+
+# 2. Accessing Values
+
+person = {"name": "Alice", "age": 26, "city": "Newyork"}
+
+if person.get("email"):
+    print("Email exist as a key")
+else:
+    print("Email does not exist as a key")
+#with default return value just to make sure it doesn’t break even if key exists but has a falsy value (e.g., empty string)
+
+if person.get("email", ""):
+    print("Email exists")
+else:
+    print("Email does not exist")
+
+#normal
+print(person["name"])       # Output: Alice
+print(person.get("age"))    # Output: 25
+
+# get() is safer — returns None or a default value if key not found
+#get() is used to find the value of the key. Also you can set default value and increase
+
+#3. Adding or Updating 
+
+# Adding a New Key-Value Pair
+
+person["email"] = "alice@example.com"
+
+#Updating an Existing Key's Value 
+person["age"] = 30
+
+# 4. Removing Items
+
+person.pop("city")           # Removes and returns the value of "city"
+del person["age"]            # Deletes key "age"
+person.clear()               # Empties the entire dictionary
+
+# 5. Checking Existence
+
+print("name" in person)      # True
+print("gender" not in person)  # True
+
+# 6. Looping Through Dictionary
+
+for key in person:
+    print(key, person[key])
+
+for key, value in person.items():
+    print(key, value)
+
+for value in person.values():
+    print(value)
+
+for key in person.keys():
+    print(key)
+
+# 7. Dictionary Length
+
+print(len(person))  # Number of key-value pairs
+
+# 8. Copying
+
+copy1 = person.copy()
+copy2 = dict(person)
+
+# 9. Merging Dictionaries
+
+dict1 = {"a": 1, "b": 2}
+dict2 = {"b": 3, "c": 4}
+dict1.update(dict2)   # dict1 becomes {'a': 1, 'b': 3, 'c': 4} common keys get updated
+
+# 10. Default Value Access
+
+print(person.get("nickname", "No nickname"))  # Safe default
+
+
+
