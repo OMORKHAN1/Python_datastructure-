@@ -1,0 +1,16 @@
+collections 
+
+It is a module (or you can loosely say a library) in Python’s standard library.
+
+It provides specialized container data types like Counter, defaultdict, OrderedDict, etc which are class of this module
+
+Counter
+
+It is a class defined inside the collections module.
+
+Its purpose is to count hashable objects (like strings, numbers, etc.).
+
+
+collections	--------   Module (like a toolbox)
+Counter	Class ------- (like a specific tool in that box)
+Counter(words) ----- Object/Instance of the Counter class (you’re using the tool)
