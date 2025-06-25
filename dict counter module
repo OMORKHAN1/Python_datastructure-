@@ -1,0 +1,28 @@
+from collections import Counter
+
+words = ["apple", "banana", "apple", "orange", "banana", "apple"]
+
+word_counts = Counter(words)
+
+print(word_counts)
+
+#output: Counter({'apple': 3, 'banana': 2, 'orange': 1})
+
+# This shows that Counter(words) has created an object that behaves like a dictionary. It prints as Counter({...}) to make it clear that 
+# this object is not just a dictionary, but specifically a Counter object. It is an instance of the Counter class,
+# which is a subclass of dict
+
+#we can also count by creating our own dictionary  
+words = ["apple", "banana", "apple", "orange", "banana", "apple"]
+
+word_count = {}
+
+for word in words: 
+    if word in word_count:
+        word_count[word] += 1
+    else:
+        word_count[word] = 1
+
+print(word_count)
+
+# output: {'apple': 3, 'banana': 2, 'orange': 1}
