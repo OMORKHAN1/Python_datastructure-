@@ -1,0 +1,124 @@
+# all the methods of counter() from collection module
+
+from collections import Counter
+
+words = ["apple", "banana", "apple", "orange", "banana", "apple"]
+
+word_counts = Counter(words)
+
+print(word_counts)
+
+#output: Counter({'apple': 3, 'banana': 2, 'orange': 1})
+
+# This shows that output - Counter(words) has created an object that behaves like a dictionary. It prints as Counter({...}) to make it clear that 
+# this object is not just a dictionary, but specifically a Counter object. It is an instance of the Counter class,
+# which is a subclass of dict
+
+#we can also count by creating our own dictionary  
+words = ["apple", "banana", "apple", "orange", "banana", "apple"]
+
+word_count = {}
+
+for word in words: 
+    if word in word_count:
+        word_count[word] += 1
+    else:
+        word_count[word] = 1
+
+print(word_count)
+
+# output: {'apple': 3, 'banana': 2, 'orange': 1} 
+
+# useful method of counter () class:
+
+from collections import Counter
+
+words = ["apple", "banana", "apple", "orange", "banana", "apple"]
+word_counts = Counter(words)
+
+# most_common(n)
+print(word_counts.most_common(2))
+# output: [('apple', 3), ('banana', 2)]
+
+print(word_counts.most_common(3))
+# output [('apple', 3), ('banana', 2), ('orange', 1)]
+
+# if n = 2 then print 2 most frequent elements, if n = 3 then 3 in descending order
+# structure: tuple inside a list
+
+# .elements()
+print(list(word_counts.elements()))
+
+# output: ['apple', 'apple', 'apple', 'banana', 'banana', 'orange']
+# print all the elements in list format
+
+
+# Arithmetic operations
+c1 = Counter(a=3, b=1)
+c2 = Counter(a=1, b=2)
+
+print(c1 + c2)   # Output: Counter({'a': 4, 'b': 3})
+print(c1 - c2)   # Output: Counter({'a': 2})  (no negative counts)
+
+# Word frequency counter from a sentence:
+text = "the quick brown fox jumps over the lazy dog the fox was quick"
+word_list = text.split()
+print(word_list)
+counter = Counter(word_list)
+print(counter.most_common())
+
+# output: [('the', 3), ('quick', 2), ('fox', 2), ('brown', 1), ('jumps', 1), ('over', 1), ('lazy', 1), ('dog', 1), ('was', 1)]
+
+# Character frequency in a string:
+
+text = "hello world"
+char_counter = Counter(text)
+print(char_counter)
+# Output: Counter({'l': 3, 'o': 2, 'h': 1, 'e': 1, ' ': 1, 'w': 1, 'r': 1, 'd': 1})
+
+# Subclassing Counter (You can make your own version of Counter if you want to extend its behavior)
+
+class EvenOddCounter(Counter):
+    def count_even_odd(self):
+        even = sum(count for word, count in self.items() if len(word) % 2 == 0)
+        odd = sum(count for word, count in self.items() if len(word) % 2 != 0)
+        return {'even': even, 'odd': odd}
+
+words = ["apple", "banana", "cat", "dog", "banana", "apple"]
+my_counter = EvenOddCounter(words)
+print(my_counter)               # Counter({'apple': 2, 'banana': 2, 'cat': 1, 'dog': 1})
+print(my_counter.count_even_odd())  # {'even': 2, 'odd': 4} (added my methods with the counter)
+
+
+# update([iterable-or-mapping])
+
+c = Counter('apple')
+c.update('banana')
+print(c)  # Output: Counter({'a': 4, 'p': 2, 'l': 1, 'e': 1, 'b': 1, 'n': 2})
+
+
+# subtract([iterable-or-mapping])
+
+c = Counter('apple')
+c.subtract('ple')
+print(c)  # Output: Counter({'a': 1, 'p': 1, 'l': 0, 'e': 0})
+
+
+# + (Addition)
+Counter('aabb') + Counter('bcc')  # Output: Counter({'b': 3, 'a': 2, 'c': 2})
+
+# - (Subtraction)
+Counter('aabb') - Counter('bcc')  # Output: Counter({'a': 2})
+
+# & (Intersection)
+Counter('aabb') & Counter('bcc')  # Output: Counter({'b': 1})
+
+# | (Union)
+Counter('aabb') | Counter('bcc')  # Output: Counter({'b': 2, 'a': 2, 'c': 2})
+
+# .get(key) and we get value of that key without raising error if it does not exist
+# .pop(key) remove the key and its value 
+
+
+
+
