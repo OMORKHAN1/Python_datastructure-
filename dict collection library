@@ -10,7 +10,8 @@ It is a class defined inside the collections module.
 
 Its purpose is to count hashable objects (like strings, numbers, etc.).
 
-
+output: 
+when we use counter to count something, its output is like an object or instance (both are correct terms) of the Counter class.
 collections	--------   Module (like a toolbox)
 Counter	Class ------- (like a specific tool in that box)
-Counter(words) ----- Object/Instance of the Counter class (you’re using the tool)
+output ----- Object/Instance of the Counter class (you’re using the tool)
