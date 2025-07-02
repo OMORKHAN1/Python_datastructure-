@@ -1,0 +1,99 @@
+# defaultfict(), its methods and examples are given. 
+#d = defaultdict(default_factory) 
+
+from collections import defaultdict
+
+words = ["apple", "ant", "banana", "bat", "car", "cat"]
+
+grouped = defaultdict(list)
+
+for word in words:
+    grouped[word[0]].append(word)
+
+print(dict(grouped))
+
+
+# Convert a list of (key, value) pairs into a dictionary of grouped values.
+
+pairs = [('a', 1), ('b', 2), ('a', 3)]
+
+result = defaultdict(list)
+
+for key, val in pairs:
+    result[key].append(val) #why append?
+print(result) # {'a': [1, 3], 'b': [2]}
+
+
+# Word frequency counter
+
+text = "apple banana apple orange banana apple"
+
+counter = defaultdict(int)
+for word in text.split():
+    counter[word] += 1
+
+print(counter)  # {'apple': 3, 'banana': 2, 'orange': 1}
+
+
+# Count letters in words
+
+words = ["hi", "hello"]
+
+letter_count = defaultdict(int)
+for word in words:
+    for char in word:
+        letter_count[char] += 1
+
+print(letter_count)  # {'h': 2, 'i': 1, 'e': 1, 'l': 2, 'o': 1}
+
+# Adjacency list of a graph
+
+edges = [(1, 2), (1, 3), (2, 4)]
+
+graph = defaultdict(list)
+for u, v in edges:
+    graph[u].append(v)
+
+print(graph)  # {1: [2, 3], 2: [4]}
+
+# Nested defaultdicts --------
+def nested_dict():
+    return defaultdict(int)
+
+data = defaultdict(nested_dict)
+data['a']['x'] += 1
+data['a']['y'] += 2
+
+print(data)  # {'a': {'x': 1, 'y': 2}}
+
+# Using lambda for custom default
+
+dd = defaultdict(lambda: "not found")
+dd['a'] = 1
+print(dd['a'])  # 1
+print(dd['b'])  # "not found"
+
+# Internally:
+
+# if key not in dict:
+#     dict[key] = default_factory()
+
+#So default_factory must be a function — and lambda is just a compact way to write one to set the value of the missing key
+
+
+
+# d = defaultdict(default_factory) 
+d = defaultdict(int)
+
+print(d[1]) # 0
+
+# What Is lambda in General?
+
+# A lambda in Python is a small anonymous function, created without def
+
+f = lambda: 42
+print(f())  # 42
+
+add = lambda x, y: x + y
+print(add(2, 3))  # 5
+
